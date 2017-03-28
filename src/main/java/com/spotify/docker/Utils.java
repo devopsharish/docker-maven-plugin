@@ -30,12 +30,10 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static java.lang.Thread.sleep;
@@ -134,15 +132,6 @@ public class Utils {
       log.info("Pushing " + imageNameWithTag);
       docker.push(imageNameWithTag, new AnsiProgressHandler());
     }
-  }
-
-  public static void saveImage(DockerClient docker, String imageName,
-                                Path tarArchivePath, Log log)
-          throws DockerException, IOException, InterruptedException {
-      log.info(String.format("Save docker image %s to %s.",
-              imageName, tarArchivePath.toAbsolutePath()));
-      final InputStream is = docker.save(imageName);
-      java.nio.file.Files.copy(is, tarArchivePath, StandardCopyOption.REPLACE_EXISTING);
   }
 
   public static void writeImageInfoFile(final DockerBuildInformation buildInfo,
