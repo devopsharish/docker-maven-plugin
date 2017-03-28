@@ -12,7 +12,7 @@ page at http://checkstyle.sourceforge.net/config.html -->
 
   <module name="SuppressionFilter">
     <property name="file" value="checkstyle-suppressions.xml"/>
-  </module>
+
 
   <module name="Header">
     <property name="headerFile" value="java.header"/>
@@ -21,7 +21,7 @@ page at http://checkstyle.sourceforge.net/config.html -->
   </module>
 
   <module name="FileTabCharacter">
-    <!-- Checks that there are no tab characters in the file.
+    rjgnsjngjdsn!-- Checks that there are no tab characters in the file.
     -->
   </module>
 
